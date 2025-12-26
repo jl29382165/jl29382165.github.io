@@ -1,0 +1,233 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 微軟正黑體;
+}
+
+html, body {
+/*  max-width: 1024px;*/
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: hidden; /*改*/
+
+}
+
+.container-fluid{
+  padding-right: 0;
+  padding-left: 0;
+
+}
+
+.navbar {
+  width: 100%; /* 確保 navbar 寬度為100% */
+  margin: 0;
+  padding: 0;
+  min-width: 100%; /* 確保背景色覆蓋整個視窗寬度 */
+  box-sizing: border-box; /* 確保背景色覆蓋整個視窗寬度 */
+}
+
+.navbar-brand {
+  margin-left: 16px;
+
+}
+
+body {
+  font-family: 微軟正黑體;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.table {
+  margin-top: 20px;
+  font-size: 14px;
+  border-bottom: 2px solid #d4d4d9;
+  width: 100%; /* 確保表格寬度為100% */
+  overflow-x: auto; /* 允許表格橫向滾動 */
+  display: block; /* 確保表格在小螢幕上能夠適應 */
+}
+
+.table>:not(caption)>*>* {
+ padding: 4px;
+ border: 1px solid #ddd;
+}
+
+/* #userTable {
+  box-shadow: 4px 4px 8px 12px rgba(200, 200, 200, 0.12);
+} */
+
+/*loading-bar底灰色，*/
+
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: gray;
+  z-index: 1030;
+}
+
+.progress {
+  height: 4px;
+}
+
+/*progress-bar藍色，跑進度0~100%*/
+.progress-bar {
+  background-color: #007bff;
+}
+
+.modal {
+  --bs-modal-width:600px;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+.modal-footer > * {
+  margin-right: 45%;
+}
+
+.modal-content {
+  border-radius: 20px;
+}
+
+
+img.ntnulogo  {
+  /* margin-left: 40px;  */
+  position: absolute;
+  right: 40px;
+  top: 20px;
+  /* display: flex;
+  justify-content: flex-end; */
+}
+
+
+ /* table */
+.column-chinese-name { 
+  width: 120px;
+  white-space: nowrap;
+}
+
+/* 底下分頁 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+
+.pagination button {
+  padding: 10px 16px;
+  margin: 0 5px;
+  border: none;
+  background-color: #006eff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.pagination button:hover {
+  background-color: #0056b3;
+}
+
+.pagination button.active {
+  background-color: #545a61;
+  font-weight: bold;
+}
+
+.pagination button.disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+/* jquery data table */
+.dataTables_filter {
+
+	margin-bottom: 12px;
+}
+
+.dataTables_length {
+	
+	margin-bottom: 12px;
+}
+
+h1, h5 {
+  margin-top: 8px;
+  text-align: center;
+
+}
+
+h5 {
+ font-weight: 600;
+}
+
+p {
+  font-size: 14px;
+  line-height: 8px;
+  text-align: center;
+}
+
+iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+}
+
+.table {
+    padding-left: 70px; 
+}
+
+@media only screen and (max-width: 767px) {
+
+  iframe {
+    width: 100%;
+    height: 400px;
+    margin: 0 20px;
+  }
+
+  .table {
+    font-size: 12px; /* 調整表格字體大小 */
+    padding-left: 0px;
+  }
+
+  .table th, .table td {
+    padding: 4px 8px; /* 調整表格單元格內邊距 */
+  }
+}
+
+
+@media only screen and (max-width: 490px) {
+  p {
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+  }
+
+  iframe {
+    width: 320px;
+    height: 200px;
+    margin: 0 20px;
+  }
+  
+  .table {
+    font-size: 12px; /* 調整表格字體大小 */
+    padding-left: 0px;
+  }
+
+  .table th, .table td {
+    padding: 4px 8px; /* 調整表格單元格內邊距 */
+  }
+}
+
+@media only screen and (max-width: 414px) {
+    .navbar-brand {
+        font-size: 14px;
+    }
+}

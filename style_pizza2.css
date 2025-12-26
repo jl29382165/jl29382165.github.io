@@ -1,0 +1,396 @@
+@charset "UTF-8";
+* {
+  font-family: "Oswald", sans-serif, 微軟正黑體;
+}
+
+html, body {
+  overflow-x: hidden;
+  font-size: 16px;
+  background-color: #ececec;
+}
+
+@media only screen and (min-width: 768px) {
+  nav {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  a.navbar-brand {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  section#section_index {
+    position: relative;
+    background-color: #ececec;
+    text-align: center;
+  }
+  section#section_index .icon {
+    width: 300%;
+    height: 300%;
+    max-width: 500px;
+    padding: 70px 0px;
+  }
+  section#section_index .marginbottom {
+    position: absolute;
+    width: 95%;
+    bottom: 0px;
+    right: -20px;
+    animation: upin 1s;
+  }
+  @keyframes upin {
+    0% {
+      bottom: -100px;
+    }
+    100% {
+      bottom: 0px;
+    }
+  }
+  section#section_index .explore {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #444444;
+    font-weight: 900;
+    top: 90%;
+    opacity: 0;
+    transition: 1s;
+  }
+  section#section_index .explore:after {
+    display: block;
+    content: "︾";
+    transform: scale(2, 1.2);
+  }
+  section#section_index .explore.at_top {
+    opacity: 1;
+  }
+
+  nav.navbar {
+    transition: 0.5s;
+  }
+  nav.navbar a {
+    transition: 0.5s;
+  }
+
+  nav.navbar.at_top {
+    background-color: transparent;
+  }
+  nav.navbar.at_top a {
+    color: #282f44;
+  }
+
+  section {
+    padding: 30px 0px;
+    position: relative;
+  }
+
+  section#section_about {
+    background-color: #e6af2e;
+  }
+  section#section_about .container {
+    transform: rotate(0deg) scale(0.9);
+  }
+  section#section_about .row {
+    height: 150px;
+    color: black;
+  }
+  section#section_about .row .r1text {
+    font-size: 84px;
+    transition: 0.1s;
+  }
+  section#section_about .row .r2text {
+    font-size: 28px;
+    transition: 0.2s;
+  }
+  section#section_about .row .r3text {
+    font-size: 54px;
+    transition: 0.3s;
+  }
+  section#section_about .marginbottom {
+    position: absolute;
+    width: 60%;
+    top: calc(100% - 2px);
+    z-index: 3;
+  }
+  section#section_about #cat {
+    width: 30%;
+    max-width: 300px;
+    position: absolute;
+    right: 0%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    user-select: none;
+  }
+  section#section_about #cross {
+    position: absolute;
+  }
+  section#section_about #cross:before, section#section_about #cross:after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 15px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  section#section_about #cross:after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  section#section_about .btn.area {
+    height: 200px;
+  }
+  section#section_about a {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform: translate(-50%, -20%) rotate(8deg);
+  }
+  section#section_about .btn-primary {
+    border: solid 1px black;
+    background-color: #fff;
+    color: black;
+    font-weight: 700;
+  }
+  section#section_about .btn-primary:hover {
+    background-color: #ececec;
+    color: white;
+  }
+  section#section_about .tri {
+    transform: rotate(-15deg);
+    margin-left: 70%;
+  }
+  section#section_about .tri1 {
+    width: 30px;
+  }
+  section#section_about .tri2 {
+    width: 150px;
+    margin-left: 20px;
+  }
+  section#section_about .tri3 {
+    width: 80px;
+    margin-left: 70%;
+  }
+  section#section_about .tri4 {
+    width: 70px;
+    margin-left: 100%;
+  }
+  section#section_about .tri5 {
+    width: 80px;
+  }
+
+  section#section_service {
+    background-color: #ececec;
+  }
+  section#section_service hr {
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+  section#section_service .menu {
+    width: 100%;
+    height: 100%;
+  }
+  section#section_service .menu2 {
+    width: 100%;
+    height: 100%;
+  }
+  section#section_service h3 {
+    text-align: center;
+  }
+
+  section#section_works {
+    background-color: #ececec;
+  }
+  section#section_works .marginbottom {
+    position: absolute;
+    width: 95%;
+    top: 95%;
+    right: -20px;
+    z-index: 2;
+    animation: upin 1s;
+  }
+  section#section_works hr {
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+
+  #navbar ul li:hover {
+    transition: 0.3s;
+    background-color: #ddd;
+  }
+  #navbar ul li:active {
+    transition: 0.3s;
+    background-color: #f5d061;
+    color: #fff;
+  }
+  #navbar ul li:visited {
+    background-color: #e6af2e;
+    color: black;
+  }
+
+  section#section_contact {
+    background-color: #ececec;
+    color: #444;
+    overflow: hidden;
+  }
+  section#section_contact .cat {
+    width: 150px;
+    position: absolute;
+    bottom: 0px;
+    transition: 0.3s;
+  }
+  section#section_contact #cat_blue {
+    right: 240px;
+    z-index: 3;
+  }
+  section#section_contact #cat_grey {
+    right: 100px;
+  }
+  section#section_contact #cat_yellow {
+    right: 170px;
+  }
+  section#section_contact .mails {
+    height: 600px;
+  }
+  section#section_contact .mails .mailbody {
+    background-color: white;
+    color: #282f44;
+    padding: 20px;
+    padding-left: 40px;
+    position: absolute;
+    width: 100%;
+    transform: translateX(-30px);
+  }
+  section#section_contact .mails .mailcover {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform: scale(1.2) translate(-50%, -50%);
+    top: 350px;
+    left: 310px;
+  }
+  section#section_contact .mails .mailcover img {
+    width: 120%;
+  }
+
+  .col-sm-6.contact {
+    padding-left: 50px;
+  }
+  .col-sm-6.contact hr {
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+  }
+
+  footer {
+    position: relative;
+    background-color: #ececec;
+    text-align: center;
+  }
+  footer h6 {
+    overflow: hidden;
+    user-select: none;
+  }
+  footer .icon {
+    width: 220%;
+    height: 220%;
+    max-width: 380px;
+    padding: 30px 0px;
+  }
+
+  section#section_about .btn-primary:hover {
+    background-color: #D95E22;
+    color: white;
+  }
+}
+@media only screen and (max-width: 600px) {
+  button.navbar-toggle {
+    display: none;
+  }
+
+  section#section_index img.icon {
+    width: 100%;
+  }
+  section#section_index .explore {
+    display: none;
+  }
+
+  section#section_about {
+    background-color: #e6af2e;
+  }
+  section#section_about img.bg {
+    width: 100%;
+  }
+  section#section_about img#cat {
+    width: 50%;
+    position: absolute;
+    left: 250px;
+  }
+  section#section_about h2.r1text {
+    font-size: 48px;
+    text-align: center;
+  }
+  section#section_about h2.r3text {
+    font-size: 28px;
+    text-align: center;
+  }
+  section#section_about .tri.tri5, section#section_about .tri.tri2, section#section_about .tri.tri1 {
+    width: 20%;
+    margin: 0px;
+  }
+  section#section_about h3.r2text {
+    display: none;
+  }
+  section#section_about .btn.btn-lg.btn-primary, section#section_about .tri.tri3, section#section_about .tri.tri4 {
+    display: none;
+  }
+
+  section#section_service img.menu, section#section_service img.menu2 {
+    width: 100%;
+  }
+  section#section_service h3 {
+    display: none;
+  }
+
+  section#section_works iframe {
+    width: 100%;
+  }
+  section#section_works h4, section#section_works h5 {
+    text-align: center;
+  }
+  section#section_works h4 {
+    font-weight: 800;
+  }
+  section#section_works h5.pl {
+    margin-bottom: 50px;
+  }
+
+  section#section_contact img.line {
+    width: 100%;
+    min-width: 250px;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+  section#section_contact #cat_blue.cat, section#section_contact #cat_grey.cat, section#section_contact #cat_yellow.cat {
+    display: none;
+  }
+  section#section_contact .col-sm-6.contact {
+    text-align: center;
+  }
+  section#section_contact .mails .mailbody {
+    padding: 0px;
+    position: absolute;
+  }
+  section#section_contact .mails .mailcover {
+    top: 400px;
+    left: 250px;
+  }
+
+  footer#footer img {
+    width: 100%;
+  }
+  footer#footer h6 {
+    text-align: center;
+  }
+}

@@ -1,0 +1,106 @@
+@charset "UTF-8";
+* {
+  font-family: "微軟正黑體", sans-serif;
+  text-align: center;
+  padding: 4px;
+}
+
+.navbar-brand {
+  font-weight: 900;
+}
+
+h3 {
+   
+    margin-top: -20px;
+}
+
+img.art {
+  width: 28%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -64px;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #8b2f31;
+  color: white;
+  text-align: center;
+}
+
+#openDoor {
+  margin: 8px;
+}
+
+#studentId {
+  width: 320px;
+  max-width: 100%;
+  border-radius: 8px;
+  border: solid 1px #aaa;
+  height: 40px;
+  display: block;
+  margin: 0 auto;
+}
+
+p.cnt {
+  font-size: 12px;
+  line-height: 12px;
+  color: white;
+  /*文字內容要顯示時改黑色*/
+}
+
+
+
+@media only screen and (max-width: 992px) {
+  img.art {
+    width: 32%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -56px;
+    z-index: -1;
+    opacity: 0.8;
+  }
+ }
+
+
+@media only screen and (max-width: 767px) {
+  img.art {
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -48px;
+    z-index: -1;
+    opacity: 0.8;
+  }
+ }
+
+
+@media only screen and (max-width: 414px) {
+  #studentId {
+    width: 72%;
+  }
+
+  img.art {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -24px;
+  }
+}
+
+@media only screen and (max-width: 361px) {
+  p.cnt {
+    font-size: 12px;
+    line-height: 12px;
+ }
+  
+}

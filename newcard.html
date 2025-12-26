@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>新製卡片申請</title>
+ 
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+ <link rel="stylesheet" href="style_newcard.css">
+</head>
+<body>
+ 
+<!-- Loading Bar進度條 -->
+<div id="loading-bar" class="loading-bar" style="display: none;">
+    <div class="progress">
+        <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+</div> 
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4e070b"> 
+        <a class="navbar-brand" href="#">
+            <img src="https://res.cloudinary.com/df0cwejff/image/upload/v1717142161/A103_Red_lmxezx.png" width="40" height="40" alt="ntnu logo">
+            臺師大新製卡片（服務證）申請
+        </a>
+        <!-- <div class="d-flex ms-auto">
+            <a href="login" class="btn btn-outline-light">登出</a>
+        </div> -->
+    </nav>
+</div>
+<div class="container mt-5">
+    <!-- 一開始隱藏的 h2 標題 -->
+    <h2 class="text-center" id="userListTitle">申請新製卡名單</h2>
+    <!-- <h2 class="text-center" id="userListTitle" style="display:none;">使用者列表清單</h2> -->
+    <br>
+    <!-- 按鈕功能區-->
+    <div class="d-flex justify-content-center gap-4">
+        <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">新增名單</button>
+        <!-- Modal-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container"> 
+                <div class="row">
+                    <form id="registerForm">
+                        <h4>申請新製卡表單</h4>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">中文名:</label>
+                            <input type="name" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="englishName" class="form-label">英文名(需與護照相同):</label>
+                            <input type="englishName" id="englishName" name="englishName" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="department" class="form-label">服務單位:</label>
+                            <input type="department" id="department" name="department" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="departmentEnglish" class="form-label">服務單位英文:</label>
+                            <input type="departmentEnglish" id="departmentEnglish" name="departmentEnglish" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="position" class="form-label">職稱:</label>
+                            <input type="position" id="position" name="position" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="positionEnglish" class="form-label">職稱英文:</label>
+                            <input type="positionEnglish" id="positionEnglish" name="positionEnglish" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="imgPhoto" class="form-label">照片(人員編號):</label>
+                            <input type="imgPhoto" id="imgPhoto" name="imgPhoto" class="form-control" >
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-primary" type="submit">新增</button>
+                        </div>
+                        
+                    </form>
+                    <br/>
+                </div>
+               
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                <button class="closebtn1 btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+            </div> -->
+            </div>
+         </div>
+        </div>
+        <!--編輯modal-->
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container"> 
+                            <div class="row">
+                                <form id="editForm">
+                                    <h4>編輯個人製卡資料</h4>
+                                    <input type="hidden" id="editId">
+                                    <div class="mb-3">
+                                        <label for="editName" class="form-label">中文名:</label>
+                                        <input type="text" id="editName" name="name" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editEnglishName" class="form-label">英文名(需與護照相同):</label>
+                                        <input type="text" id="editEnglishName" name="englishName" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editDepartment" class="form-label">服務單位:</label>
+                                        <input type="text" id="editDepartment" name="department" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editDepartmentEnglish" class="form-label">服務單位英文:</label>
+                                        <input type="text" id="editDepartmentEnglish" name="departmentEnglish" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editPosition" class="form-label">職稱:</label>
+                                        <input type="text" id="editPosition" name="position" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editPositionEnglish" class="form-label">職稱英文:</label>
+                                        <input type="text" id="editPositionEnglish" name="positionEnglish" class="form-control" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editImgPhoto" class="form-label">照片(人員編號):</label>
+                                        <input type="text" id="editImgPhoto" name="ImgPhoto" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <button class="btn btn-success" type="submit">修改儲存</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="#" class="btn btn-primary">查詢（最新日期排列）</a>
+
+        <!-- <a href="register.html" class="btn btn-secondary">註冊</a> -->
+    </div>
+    <br>
+    <!-- 一開始隱藏的表格 -->
+    <table class="table table-bordered table-hover" id="userTable">
+    
+    <!-- <table class="table table-striped table-bordered" id="userTable" style="display:none;"></table> -->
+      <thead>
+        <tr class="table-dark">
+            <!-- <th>項目</th> -->
+            <th class="column-chinese-name">中文名</th>
+            <th>英文名</th>
+            <th>單位</th>
+            <th>單位英文</th>
+            <th>職稱</th>
+            <th>職稱英文</th>
+            <th>圖片</th>
+            <th>建立時間</th>
+            <th>最後修改時間</th>
+            <th>刪除</th>
+            <th>修改</th>
+        </tr>
+</thead>
+ <tbody>
+ <!-- 資料行將由 JavaScript 動態插入 -->
+ </tbody>
+ </table>
+<!-- 分頁按鈕容器 -->
+<div id="pagination" class="pagination"></div>
+<br>
+<br>
+</div>
+<br>
+<br>
+<br>
+<h5>新製卡系統開發實作-測試</h5>
+<hr/>
+<p>Designer：廖予婷 Liao Yu-Ting</p>
+<p>Front-end Engineer：廖予婷 Liao Yu-Ting</p>
+<p>Back-end Engineer：廖予婷 Liao Yu-Ting</p>
+<p>Programming language：html /css / javascript / java spring boot / my sql</p> 
+<br>
+<br>
+<div class="container"> 
+    <div class="row">
+        <div class="col-md-12"><img src="https://res.cloudinary.com/df0cwejff/image/upload/v1738668659/newcard1_new_bljxdd.png" width="100%" alt="new card1 full function"></div>
+        <div class="col-md-12"><img src="https://res.cloudinary.com/df0cwejff/image/upload/v1738668660/newcard2_search_new_m73hgg.png" width="100%" alt="new card2 search"></div>
+        <!--<div class="col-md-12"><img src="https://res.cloudinary.com/df0cwejff/image/upload/v1738668661/data_new_zbq20g.png" width="100%" alt="new card database"></div>-->
+    </div>
+</div>
+<br/>
+<!--<h5>新製卡系統申請-測試使用畫面</h5>-->
+<!--<div class="col-md-12"> -->
+<!--      <iframe width="560" height="315" src="https://www.youtube.com/embed/L1IYDuhAuwg?si=eXVSgYb_Aia5MYeM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>-->
+<!--</div>-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pinyin@2.11.2/lib/pinyin.min.js"></script>
+<script src="script_newcard.js"></script>
+</body>
+</html>

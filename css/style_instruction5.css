@@ -1,0 +1,85 @@
+@charset "UTF-8";
+* {
+  font-family: 微軟正黑體;
+  text-align: center;
+}
+
+h1.success, h1 {
+  font-weight: 900;
+}
+
+h2.cardset, h2 {
+  font-weight: 700;
+}
+
+.navbar-brand {
+  font-weight: 900;
+}
+
+.cardinfo {
+  text-align: start;
+  padding: 4px;
+}
+
+.img {
+  width: 240px;
+  height: 240px;
+  padding: 4px;
+}
+
+.phone1, .phone2 {
+  width: 80%;
+}
+
+.phone3 {
+  width: 50%;
+}
+
+.imgSuccess {
+  width: 16%;
+}
+
+.imgCard {
+  width: 24%;
+}
+
+.imgIcon {
+  width: 6%;
+}
+
+.col-md-12.unlock_method {
+  font-weight: 700;
+}
+.col-md-12.unlock_method span.p {
+  color: red;
+}
+
+#video1, #video2, #video3 {
+  width:60%;
+}
+
+@media only screen and (max-width: 992px) {
+  .img {
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+  }  
+}
+
+@media only screen and (max-width: 767px) {
+  .img {
+    width: 240px;
+    height: 240px;
+    padding: 4px;
+  }  
+#video1, #video2 {
+    width:100%;
+}
+}
+
+
+@media only screen and (max-width: 414px) {
+  .imgIcon {
+    width: 10%;
+  }
+}
